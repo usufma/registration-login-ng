@@ -1,0 +1,35 @@
+<div class="login-container">
+  <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
+    <mat-form-field>
+      <mat-label>First name</mat-label>
+      <input matInput [(ngModel)]="user.firstName" name="firstName" required>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Last name</mat-label>
+      <input matInput [(ngModel)]="user.lastName" name="lastName" required>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput [(ngModel)]="user.email" name="email" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Date of Birth</mat-label>
+      <input matInput [matDatepicker]="picker" [(ngModel)]="user.dob" name="dob" required>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input matInput [(ngModel)]="user.password" name="password" type="password" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Confirm Password</mat-label>
+      <input matInput [(ngModel)]="user.confirmPassword" name="confirmPassword" type="password" required>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="!registerForm.valid">Register</button>
+  </form>
+</div>
